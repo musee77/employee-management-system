@@ -45,4 +45,8 @@ public class Employee {
 
     @Column(length = 15)
     private String phoneNumber;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private EmployeeType employeeType = EmployeeType.STAFF; // Default to STAFF
 }

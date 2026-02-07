@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Management System</title>
+    <title>Student Management - School System</title>
     <style>
         * {
             margin: 0;
@@ -136,54 +136,49 @@
 <body>
 <div class="nav-bar">
     <a href="/" class="nav-link">Dashboard</a>
-    <a href="/employees" class="nav-link active">Staff/Teachers</a>
-    <a href="/students" class="nav-link">Students</a>
+    <a href="/employees" class="nav-link">Staff/Teachers</a>
+    <a href="/students" class="nav-link active">Students</a>
 </div>
+
 <div class="container">
-    <h1>🏢 Employee Management System</h1>
+    <h1>🎓 Student Management</h1>
 
-    <a href="/employees/new" class="btn btn-primary">➕ Add New Employee</a>
+    <a href="/students/new" class="btn btn-primary">➕ Add New Student</a>
 
-    <table th:if="${not #lists.isEmpty(employees)}">
+    <table th:if="${not #lists.isEmpty(students)}">
         <thead>
         <tr>
             <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Type</th>
-            <th>Department</th>
-            <th>Position</th>
-            <th>Salary</th>
+            <th>Name</th>
+            <th>Admission #</th>
+            <th>Grade</th>
+            <th>Parent Contact</th>
             <th>Hire Date</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="employee : ${employees}">
-            <td th:text="${employee.id}"></td>
-            <td th:text="${employee.firstName}"></td>
-            <td th:text="${employee.lastName}"></td>
-            <td th:text="${employee.email}"></td>
-            <td th:text="${employee.employeeType}"></td>
-            <td th:text="${employee.department}"></td>
-            <td th:text="${employee.position}"></td>
-            <td th:text="'$' + ${employee.salary}"></td>
-            <td th:text="${employee.hireDate}"></td>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.firstName + ' ' + student.lastName}"></td>
+            <td th:text="${student.admissionNumber}"></td>
+            <td th:text="${student.grade}"></td>
+            <td th:text="${student.parentContact}"></td>
+            <td th:text="${student.dateOfBirth}"></td>
             <td class="actions">
-                <a th:href="@{/employees/edit/{id}(id=${employee.id})}"
+                <a th:href="@{/students/edit/{id}(id=${student.id})}"
                    class="btn btn-warning">✏️ Edit</a>
-                <a th:href="@{/employees/delete/{id}(id=${employee.id})}"
+                <a th:href="@{/students/delete/{id}(id=${student.id})}"
                    class="btn btn-danger"
-                   onclick="return confirm('Are you sure you want to delete this employee?')">
+                   onclick="return confirm('Are you sure you want to delete this student?')">
                     🗑️ Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
 
-    <div class="empty-message" th:if="${#lists.isEmpty(employees)}">
-        <p>📭 No employees found. Click "Add New Employee" to get started!</p>
+    <div class="empty-message" th:if="${#lists.isEmpty(students)}">
+        <p>📭 No students found. Click "Add New Student" to get started!</p>
     </div>
 </div>
 </body>
