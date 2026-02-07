@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - School Management System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .logo h1 { font-size: 2.5em; color: #333; }
+        .logo span { color: #667eea; }
+        .logo p { color: #888; margin-top: 10px; }
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            width: 100%;
+        }
+        .portal-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        .portal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .portal-card.admin { border-color: #667eea; }
+        .portal-card.admin:hover { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .portal-card.staff { border-color: #28a745; }
+        .portal-card.staff:hover { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; }
+        .portal-card.student { border-color: #17a2b8; }
+        .portal-card.student:hover { background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%); color: white; }
+        .portal-card i { font-size: 3em; margin-bottom: 20px; display: block; }
+        .portal-card h2 { font-size: 1.4em; margin-bottom: 10px; }
+        .portal-card p { font-size: 0.9em; opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+<div class="logo">
+    <h1>🏫 <span>School</span>MS</h1>
+    <p>School Management System - Choose Your Portal</p>
+</div>
+
+<div class="portal-grid">
+    <a href="/login/admin" class="portal-card admin">
+        <i>👨‍💼</i>
+        <h2>Admin Portal</h2>
+        <p>System administrators and management</p>
+    </a>
+    
+    <a href="/login/staff" class="portal-card staff">
+        <i>👨‍🏫</i>
+        <h2>Staff/Teacher Portal</h2>
+        <p>Teachers and school staff members</p>
+    </a>
+    
+    <a href="/login/student" class="portal-card student">
+        <i>🎓</i>
+        <h2>Student Portal</h2>
+        <p>Students access their academic info</p>
+    </a>
+</div>
+
+</body>
+</html>
